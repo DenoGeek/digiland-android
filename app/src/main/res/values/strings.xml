@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Digiland</string>
+    <string name="bold_font">Montserrat-Bold.ttf</string>
+    <string name="regular_font">Montserrat-Regular.ttf</string>
+</resources>

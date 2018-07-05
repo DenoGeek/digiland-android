@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tool_bar"
+            android:background="@color/colorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </android.support.v7.widget.Toolbar>
+
+        <ScrollView
+            android:layout_width="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_layout"
+            app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+
+                <ImageView
+                    android:layout_width="240dp"
+                    android:scaleType="centerCrop"
+                    android:layout_height="130dp"
+                    android:src="@mipmap/ic_launcher"/>
+                <neverest.ke.co.digiland.widget.FontTextView
+                    android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:id="@+id/internet_notifier"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    app:font_face="@string/regular_font"
+                    android:layout_height="wrap_content" />
+
+
+
+                <ProgressBar
+                    android:layout_width="wrap_content"
+                    android:id="@+id/pr"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content" />
+
+                <neverest.ke.co.digiland.widget.FontTextView
+                    android:layout_width="match_parent"
+                    android:text="Search vehicle below"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    app:font_face="@string/regular_font"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:layout_width="280dp"
+                    android:padding="@dimen/five"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/ic_action_search"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/activity_vertical_margin"
+                    android:hint="Chassis/Vin number"
+                    android:id="@+id/search_param"
+                    android:background="@drawable/round_edittext_states"/>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:layout_width="120dp"
+                    android:text="Search"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:layout_gravity="center"
+                    android:id="@+id/search_btn"
+                    style="@style/AppTheme.RoundedCornerMaterialButton"
+                    android:layout_marginBottom="@dimen/five"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="@dimen/five"
+                    android:layout_marginLeft="@dimen/five"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:padding="@dimen/five"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"
+                        android:layout_height="wrap_content">
+
+                        <neverest.ke.co.digiland.widget.FontTextView
+                            android:layout_width="match_parent"
+                            android:text="Lr Number"
+                            android:id="@+id/car_label"
+                            app:font_face="@string/bold_font"
+                            android:layout_marginRight="@dimen/ten"
+                            android:layout_marginLeft="@dimen/ten"
+                            android:gravity="center_vertical"
+                            android:drawableLeft="@drawable/ic_action_search"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:orientation="vertical"
+                            android:id="@+id/car_data"
+                            android:layout_below="@id/car_label"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_margin="@dimen/ten"
+                                android:background="@color/divider"
+                                android:layout_height="1dp" />
+
+                            <neverest.ke.co.digiland.widget.FontTextView
+                                android:layout_width="match_parent"
+                                android:text="Owner information"
+                                android:layout_marginLeft="@dimen/ten"
+                                android:layout_marginRight="@dimen/ten"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:orientation="horizontal"
+                                android:weightSum="4"
+                                android:layout_height="wrap_content">
+
+                                <neverest.ke.co.digiland.widget.FontTextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:text="John"
+                                    android:id="@+id/mileage"
+                                    app:font_face="@string/regular_font"
+                                    android:layout_marginRight="@dimen/ten"
+                                    android:layout_marginLeft="@dimen/ten"
+                                    android:gravity="center"
+                                    android:drawableTop="@drawable/ic_action_user"
+                                    android:layout_height="wrap_content" />
+
+                                <neverest.ke.co.digiland.widget.FontTextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:text="Doe"
+                                    android:id="@+id/passengers"
+                                    app:font_face="@string/regular_font"
+                                    android:layout_marginRight="@dimen/ten"
+                                    android:layout_marginLeft="@dimen/ten"
+                                    android:gravity="center"
+                                    android:drawableTop="@drawable/ic_action_card"
+                                    android:layout_height="wrap_content" />
+
+                                <neverest.ke.co.digiland.widget.FontTextView
+                                    android:layout_width="0dp"
+                                    android:layout_weight="2"
+                                    android:text="email@email.com"
+                                    android:id="@+id/year"
+                                    app:font_face="@string/regular_font"
+                                    android:layout_marginRight="@dimen/ten"
+                                    android:layout_marginLeft="@dimen/ten"
+                                    android:gravity="center"
+                                    android:drawableTop="@drawable/ic_action_email"
+                                    android:layout_height="wrap_content" />
+
+                            </LinearLayout>
+
+                            <android.support.v7.widget.AppCompatButton
+                                android:layout_width="wrap_content"
+                                android:text="Generate report"
+                                android:layout_marginTop="@dimen/activity_vertical_margin"
+                                android:visibility="gone"
+                                android:id="@+id/generate_button"
+                                android:layout_gravity="center"
+                                style="@style/AppTheme.RoundedCornerMaterialButtonSmall"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </android.support.v7.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:id="@+id/bottom_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content">
+
+            <neverest.ke.co.digiland.widget.FontTextView
+                android:layout_width="match_parent"
+                android:text="We strive to give you much infromation to help make the right buying decisions!"
+                android:padding="@dimen/ten"
+                android:textColor="@android:color/white"
+                app:font_face="@string/regular_font"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
+

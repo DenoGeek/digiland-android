@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="260dp"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <neverest.ke.co.digiland.widget.FontTextView
+            android:layout_width="wrap_content"
+            app:font_face="@string/regular_font"
+            android:layout_marginTop="@dimen/ten"
+            android:text="place an offer for this listing of land"
+            android:layout_height="wrap_content" />
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:id="@+id/pr"
+            android:layout_marginTop="@dimen/ten"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/offer_value"
+            android:layout_marginTop="@dimen/ten"
+            android:layout_height="wrap_content" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="Place Offer"
+            android:id="@+id/place_offer"
+            android:layout_marginBottom="@dimen/ten"
+            android:layout_gravity="center_horizontal"
+            style="@style/AppTheme.RoundedCornerMaterialButton"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
