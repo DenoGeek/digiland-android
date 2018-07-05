@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="@dimen/five"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:padding="@dimen/five"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <neverest.ke.co.digiland.widget.FontTextView
+                android:layout_width="wrap_content"
+                app:font_face="@string/regular_font"
+                android:text="Listing ID : "
+                android:id="@+id/listing_id_label"
+                android:textColor="@color/secondary_text"
+                android:layout_height="wrap_content" />
+
+            <neverest.ke.co.digiland.widget.FontTextView
+                android:layout_width="wrap_content"
+                app:font_face="@string/regular_font"
+                android:text="12"
+                android:layout_below="@id/listing_id_label"
+                android:id="@+id/listing_id"
+                android:textColor="@color/primary_text"
+                android:layout_height="wrap_content" />
+
+            <neverest.ke.co.digiland.widget.FontTextView
+                android:layout_width="wrap_content"
+                app:font_face="@string/regular_font"
+                android:layout_toLeftOf="@+id/price"
+                android:text="Price : "
+                android:id="@+id/price_label"
+                android:textColor="@color/secondary_text"
+                android:layout_height="wrap_content" />
+
+            <neverest.ke.co.digiland.widget.FontTextView
+                android:layout_width="wrap_content"
+                app:font_face="@string/bold_font"
+                android:layout_alignParentRight="true"
+                android:text="4500"
+                android:id="@+id/price"
+                android:textColor="@color/primary_text"
+                android:layout_height="wrap_content" />
+
+            <neverest.ke.co.digiland.widget.FontTextView
+                android:layout_width="match_parent"
+                android:id="@+id/description"
+                app:font_face="@string/regular_font"
+                android:textColor="@color/secondary_text"
+                android:layout_below="@id/listing_id"
+                android:layout_height="wrap_content" />
+
+            <neverest.ke.co.digiland.widget.FontTextView
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:id="@+id/state"
+                app:font_face="@string/bold_font"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_below="@id/description"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>

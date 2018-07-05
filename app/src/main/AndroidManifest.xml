@@ -23,7 +23,7 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:name=".MainActivity" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
+            android:theme="@style/AppTheme"
             android:name=".ListingsActivity">
 
         </activity>

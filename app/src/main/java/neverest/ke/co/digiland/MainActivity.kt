@@ -1,8 +1,10 @@
 package neverest.ke.co.digiland
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.View
 import com.loopj.android.http.JsonHttpResponseHandler
 import com.loopj.android.http.RequestParams
@@ -21,6 +23,12 @@ class MainActivity : AppCompatActivity() {
         var toolbar=findViewById<Toolbar>(R.id.tool_bar)
         setSupportActionBar(toolbar)
         car_data?.visibility=View.GONE
+
+        generate_button.setOnClickListener{
+            val i= Intent(applicationContext,ListingsActivity::class.java)
+            i.putExtra("lr",land_ref_no)
+            startActivity(i)
+        }
 
         search_btn.setOnClickListener{
 
@@ -41,18 +49,29 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onSuccess(statusCode: Int, headers: Array<out Header>?, response: JSONObject?) {
                     super.onSuccess(statusCode, headers, response)
-
-                    var _resolved_owner=""
+                    car_label?.text="LRno: "+response?.getString("landRefNo")
+                    var _resolved_owner=response?.getString("owner")!!.split("#")[1]
                     client.get("Member/"+_resolved_owner,params,object :JsonHttpResponseHandler(){
                         override fun onSuccess(statusCode: Int, headers: Array<out Header>?, response: JSONObject?) {
                             super.onSuccess(statusCode, headers, response)
-                            //Display details of the owner
+                            setUpOwner(response)
                         }
                     })
                 }
             })
 
         }
+    }
+
+
+    private fun setUpOwner(car:JSONObject?){
+
+        car_data?.visibility=View.VISIBLE
+        generate_button?.visibility=View.VISIBLE
+
+        mileage?.text=car?.getString("firstName")
+        passengers?.text=car?.getString("lastName")
+        year?.text=car?.getString("email")
     }
 
     

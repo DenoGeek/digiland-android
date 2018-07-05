@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:paddingLeft="@dimen/ten"
+    android:paddingRight="@dimen/ten"
     android:layout_width="wrap_content"
     android:layout_height="match_parent">
 
@@ -33,6 +35,8 @@
         <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:text="Place Offer"
+            android:padding="@dimen/ten"
+            android:layout_marginTop="@dimen/ten"
             android:id="@+id/place_offer"
             android:layout_marginBottom="@dimen/ten"
             android:layout_gravity="center_horizontal"

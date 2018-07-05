@@ -18,9 +18,7 @@ class LoginActivity : AppCompatActivity() ,SplashFragment.SplashInterface,LoginF
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        switchPage(_page)
-
-        if (CoreUtils.hasAuthorization()){
+        if (CoreUtils.basicAuthorization()!=null){
             val i= Intent(applicationContext,MainActivity::class.java)
             i.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(i)
@@ -43,6 +41,11 @@ class LoginActivity : AppCompatActivity() ,SplashFragment.SplashInterface,LoginF
             }
             2->{
                 ft.replace(R.id.main_frame, LoginFragment(), "login");ft.commit()
+            }
+            3->{
+                val i= Intent(applicationContext,MainActivity::class.java)
+                i.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(i)
             }
         }
     }

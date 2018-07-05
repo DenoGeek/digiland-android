@@ -3,6 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
+    android:background="@drawable/gradient_background_two"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
@@ -10,7 +11,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/tool_bar"
-            android:background="@color/colorPrimary"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -33,10 +33,10 @@
 
 
                 <ImageView
-                    android:layout_width="240dp"
+                    android:layout_width="130dp"
                     android:scaleType="centerCrop"
                     android:layout_height="130dp"
-                    android:src="@mipmap/ic_launcher"/>
+                    android:src="@drawable/logo"/>
                 <neverest.ke.co.digiland.widget.FontTextView
                     android:layout_width="match_parent"
                     android:gravity="center"
@@ -60,7 +60,7 @@
 
                 <neverest.ke.co.digiland.widget.FontTextView
                     android:layout_width="match_parent"
-                    android:text="Search vehicle below"
+                    android:text="Search land below"
                     android:gravity="center"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -79,13 +79,14 @@
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/activity_vertical_margin"
-                    android:hint="Chassis/Vin number"
+                    android:hint="Land reference number"
                     android:id="@+id/search_param"
                     android:background="@drawable/round_edittext_states"/>
 
                 <android.support.v7.widget.AppCompatButton
                     android:layout_width="120dp"
                     android:text="Search"
+                    android:padding="@dimen/ten"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
                     android:layout_gravity="center"
                     android:id="@+id/search_btn"
@@ -181,7 +182,7 @@
 
                             <android.support.v7.widget.AppCompatButton
                                 android:layout_width="wrap_content"
-                                android:text="Generate report"
+                                android:text="View Listings"
                                 android:layout_marginTop="@dimen/activity_vertical_margin"
                                 android:visibility="gone"
                                 android:id="@+id/generate_button"

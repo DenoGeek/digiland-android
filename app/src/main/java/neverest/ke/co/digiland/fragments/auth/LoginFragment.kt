@@ -2,17 +2,24 @@ package neverest.ke.co.digiland.fragments.auth
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.gson.Gson
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.JsonHttpResponseHandler
 import com.loopj.android.http.RequestParams
+import com.raizlabs.android.dbflow.sql.language.Delete
 import cz.msebera.android.httpclient.Header
 import kotlinx.android.synthetic.main.auth_login_fragment.*
 import neverest.ke.co.digiland.R
+import neverest.ke.co.digiland.models.AuthUser
+import neverest.ke.co.digiland.models.AuthUser_Table
 import neverest.ke.co.digiland.utils.CoreUtils
 import neverest.ke.co.digiland.utils.NetworkClient
+import org.json.JSONArray
 import org.json.JSONObject
 
 
@@ -38,7 +45,7 @@ class LoginFragment:Fragment(){
             var email=email_address.text.toString()
             var client=NetworkClient()
             var params=RequestParams();
-            client[CoreUtils.base_url+"api/Member/"+email, params, object :JsonHttpResponseHandler(){
+            client["Member/"+email, params, object :JsonHttpResponseHandler(){
                 override fun onStart() {
                     pr.visibility=View.VISIBLE
                 }
@@ -49,10 +56,21 @@ class LoginFragment:Fragment(){
 
                 override fun onSuccess(statusCode: Int, headers: Array<out Header>?, response: JSONObject?) {
                     super.onSuccess(statusCode, headers, response)
+                    Delete().from(AuthUser::class.java).execute()
+                    var user=Gson().fromJson(response.toString(),AuthUser::class.java)
+                    user.save()
+                    _login_interface?.changePage(3)
+
                 }
 
                 override fun onFailure(statusCode: Int, headers: Array<out Header>?, throwable: Throwable?, errorResponse: JSONObject?) {
                     super.onFailure(statusCode, headers, throwable, errorResponse)
+                    Toast.makeText(activity,"An error was encountered trying to start your session",Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onSuccess(statusCode: Int, headers: Array<out Header>?, response: JSONArray?) {
+                    super.onSuccess(statusCode, headers, response)
+                    Log.e("Res",response.toString())
                 }
 
             }]
